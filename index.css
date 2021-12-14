@@ -1,0 +1,16 @@
+body {
+	background: #fafafa;
+	font-family: Consolas, monaco, monospace;
+	color: #333;
+	line-height: 1.42857143;
+	margin: 0;
+	background-image: linear-gradient(45deg, #4158d0, #c850c0, #ffcc70);
+}
+
+.wrapper {
+	gap: 20px;
+	padding: 30px;
+	border-radius: 10px;
+	background-color: #0003;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
