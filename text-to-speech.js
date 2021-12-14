@@ -20,6 +20,11 @@ function pauseSpeech() {
 	window.speechSynthesis.pause();
 }
 
+function countwords(str) {
+	count = str.split(" ").length;
+	document.querySelector("#count").innerHTML = count;
+}
+
 window.speechSynthesis.onvoiceschanged = () => {
 	// Get List of Voices
 	voices = window.speechSynthesis.getVoices();
@@ -62,13 +67,23 @@ document.querySelector("#voices").addEventListener("change", () => {
 	speech.voice = voices[document.querySelector("#voices").value];
 });
 
+// get words from textarea and count.
+document.querySelector("textarea").addEventListener("input", () => {
+	// Get words from textarea
+	const words = document.querySelector("textarea").value;
+	if (words.length > 0) {
+		countwords(words);
+	} else {	
+		document.querySelector("#count").innerHTML = '';
+	}
+});
+
 document.querySelector("#start").addEventListener("click", () => {
 	// cancel all speech synthesis process running
 	cancelSpeech();
 
 	// Set the text property with the value of the textarea
 	speech.text = document.querySelector("textarea").value;
-
 	// Start Speaking depending on the rate that has been set.
 	window.speechSynthesis.speak(speech);
 });
